@@ -1,0 +1,10 @@
+@-moz-document url("about:newtab"), url("about:home") {
+    .logo-and-wordmark, .search-wrapper, .ds-outer-wrapper-column, 
+    .footer, .personalize-button, .collapsible-section, #topSites {
+        display: none !important;
+    }
+
+    body {
+        background-color: #0f1115 !important; /* Тот же Ultra Dark */
+    }
+}

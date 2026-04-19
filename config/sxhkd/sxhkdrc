@@ -1,0 +1,36 @@
+ctrl + alt + t
+    kitty
+super + Return
+    kitty
+super + d
+    dmenu_run
+super + alt + q
+    bspc quit
+super + {_,shift + }w
+    bspc node -{c,k}
+super + f
+    bspc node -t ~fullscreen
+super + m
+    bspc node -d next --follow
+super + s
+    bspc node -t ~floating
+alt + Tab
+    bspc node -f next.local.window
+alt + shift + Tab
+    bspc node -f prev.local.window
+super + alt + {Left,Down,Up,Right}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0} || bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+super + {1-5}
+    bspc desktop -f {1-5}
+super + shift + {1-5}
+    bspc node -d {1-5}
+super + v
+    bspc node @parent -R 90
+super + b
+    firefox
+super + shift + t
+    thunar
+super + t
+    telegram-desktop
+super + q
+    bspc node -c

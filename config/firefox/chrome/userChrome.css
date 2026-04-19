@@ -1,0 +1,83 @@
+:root {
+    --bg-color: #0f1115;         
+    --urlbar-bg: #1a1d23;       
+    --accent-color: #2d343f;    
+    --text-color: #c9d1d9;      
+    --hover-color: rgba(255, 255, 255, 0.02);
+}
+
+#nav-bar, #TabsToolbar {
+    background-color: var(--bg-color) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#urlbar-container {
+    min-width: 80% !important; 
+    margin: 0 auto !important;
+}
+
+#urlbar-background {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#urlbar-input-container {
+    background-color: var(--urlbar-bg) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255,255,255,0.02) !important;
+}
+
+#urlbar-input {
+    text-align: center !important;
+    color: var(--text-color) !important;
+}
+
+#back-button, #forward-button {
+    list-style-image: none !important;
+    background: transparent !important;
+}
+
+#back-button .toolbarbutton-icon {
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='15 18 9 12 15 6'></polyline></svg>") !important;
+    mask-size: 18px !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center !important;
+    background-color: var(--text-color) !important;
+}
+
+#forward-button .toolbarbutton-icon {
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='9 18 15 12 9 6'></polyline></svg>") !important;
+    mask-size: 18px !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center !important;
+    background-color: var(--text-color) !important;
+}
+
+.urlbarView {
+    background-color: var(--urlbar-bg) !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    border-top: none !important;
+    border-radius: 0 0 12px 12px !important;
+    color: var(--text-color) !important;
+}
+
+.urlbarView-row[selected], 
+.urlbarView-row:hover {
+    background-color: var(--accent-color) !important;
+    color: #ffffff !important;
+}
+
+.urlbarView-search-tips, .search-one-offs {
+    display: none !important;
+}
+
+.tab-background[selected="true"] {
+    border-bottom: 2px solid var(--accent-color) !important;
+    background-color: rgba(255,255,255,0.02) !important;
+}
+
+#PersonalToolbar, #alltabs-button, .titlebar-spacer, #tracking-protection-icon-container {
+    display: none !important;
+}
