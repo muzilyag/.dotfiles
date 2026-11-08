@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   services.xserver.displayManager.lightdm = {
     enable = true;
     greeters.gtk = {
@@ -29,11 +27,4 @@
       '';
     };
   };
-
-  environment.systemPackages = [
-    (pkgs.catppuccin-gtk.override {
-      accents = [ "lavender" ];
-      variant = "mocha";
-    })
-  ];
 }

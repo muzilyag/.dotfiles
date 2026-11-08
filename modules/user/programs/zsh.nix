@@ -16,7 +16,7 @@
       n = "nvim";
       ls = "ls --color=auto";
       ll = "ls -la";
-      rbnix = "cd ~/.dotfiles && git add . && sudo nixos-rebuild switch --flake .#vm"; 
+      rbnix = "cd ~/.dotfiles && git add . && sudo nixos-rebuild switch --flake ~/.dotfiles";
     };
 
     initExtra = ''

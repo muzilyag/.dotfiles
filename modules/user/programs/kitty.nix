@@ -1,36 +1,36 @@
-{ pkgs, ... }: {
+{ colors, ... }: {
   programs.kitty = {
     enable = true;
     settings = {
-      font_family = "JetBrainsMono Nerd Font";
+      font_family = colors.font;
       font_size = "18.0";
       window_padding_width = "8";
-      
-      foreground = "#eaecf0";
-      background = "#101418";
-      selection_foreground = "#101418";
-      selection_background = "#eaecf0";
-      cursor = "#88a3e8";
-      cursor_text_color = "#101418";
-      url_color = "#88a3e8";
-      
-      active_border_color = "#88a3e8";
-      inactive_border_color = "#27292d";
-      bell_border_color = "#ca982e";
-      
-      active_tab_foreground = "#101418";
-      active_tab_background = "#88a3e8";
-      inactive_tab_foreground = "#eaecf0";
-      inactive_tab_background = "#202122";
 
-      color0 = "#27292d"; color8 = "#404244";
-      color1 = "#fd7865"; color9 = "#fd7865";
-      color2 = "#2cb491"; color10 = "#2cb491";
-      color3 = "#ca982e"; color11 = "#ca982e";
-      color4 = "#88a3e8"; color12 = "#88a3e8";
-      color5 = "#a799cd"; color13 = "#a799cd";
-      color6 = "#80cdb3"; color14 = "#80cdb3";
-      color7 = "#eaecf0"; color15 = "#f8f9fa";
+      foreground = colors.fg;
+      background = colors.bg;
+      selection_foreground = colors.bg;
+      selection_background = colors.fg;
+      cursor = colors.accent;
+      cursor_text_color = colors.bg;
+      url_color = colors.accent;
+
+      active_border_color = colors.accent;
+      inactive_border_color = colors.surface0;
+      bell_border_color = colors.yellow;
+
+      active_tab_foreground = colors.bg;
+      active_tab_background = colors.accent;
+      inactive_tab_foreground = colors.fg;
+      inactive_tab_background = colors.surfaceDark;
+
+      color0 = colors.surface0; color8 = colors.surface1;
+      color1 = colors.red;      color9 = colors.red;
+      color2 = colors.green;    color10 = colors.green;
+      color3 = colors.yellow;   color11 = colors.yellow;
+      color4 = colors.accent;   color12 = colors.accent;
+      color5 = colors.purple;   color13 = colors.purple;
+      color6 = colors.cyan;     color14 = colors.cyan;
+      color7 = colors.fg;       color15 = colors.white;
 
       linux_display_server = "x11";
       sync_to_monitor = "no";

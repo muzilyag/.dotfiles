@@ -3,10 +3,12 @@ ctrl + alt + t
 super + Return
     kitty
 super + d
-    dmenu_run
+    rofi -show drun
+super + x
+    ~/.config/polybar/powermenu.sh
 super + alt + q
     bspc quit
-super + {_,shift + }w
+super + {_,shift + }q
     bspc node -{c,k}
 super + f
     bspc node -t ~fullscreen
@@ -32,5 +34,17 @@ super + shift + t
     thunar
 super + t
     telegram-desktop
-super + q
-    bspc node -c
+Print
+    flameshot gui
+super + shift + s
+    flameshot gui
+XF86AudioRaiseVolume
+    pamixer -i 5
+XF86AudioLowerVolume
+    pamixer -d 5
+XF86AudioMute
+    pamixer -t
+XF86MonBrightnessUp
+    brightnessctl set +5%
+XF86MonBrightnessDown
+    brightnessctl set 5%-

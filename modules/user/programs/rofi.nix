@@ -1,33 +1,53 @@
-{ config, pkgs, ... }: {
+{ config, colors, ... }: {
   programs.rofi = {
     enable = true;
+    extraConfig = {
+      show-icons = true;
+      icon-theme = "Papirus-Dark";
+      display-drun = "";
+      drun-display-format = "{name}";
+    };
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
-      bg = "#101418";
-      fg = "#eaecf0";
-      accent = "#88a3e8";
-      bg-alt = "#27292d";
     in {
       "*" = {
-        background-color = mkLiteral bg;
-        foreground-color = mkLiteral fg;
-        text-color = mkLiteral fg;
-        font = "JetBrainsMono Nerd Font 16";
+        background-color = mkLiteral colors.bg;
+        foreground-color = mkLiteral colors.fg;
+        text-color = mkLiteral colors.fg;
+        font = "${colors.font} 16";
       };
       "window" = {
         width = mkLiteral "25%";
         border = mkLiteral "2px";
-        border-color = mkLiteral accent;
+        border-color = mkLiteral colors.accent;
         border-radius = mkLiteral "12px";
         padding = mkLiteral "15px";
+      };
+      "inputbar" = {
+        children = map mkLiteral [ "prompt" "entry" ];
+        padding = mkLiteral "4px 8px";
+        margin = mkLiteral "0 0 10px 0";
+      };
+      "prompt" = {
+        text-color = mkLiteral colors.accent;
+        margin = mkLiteral "0 10px 0 0";
+      };
+      "listview" = {
+        lines = 8;
+        scrollbar = false;
       };
       "element" = {
         padding = mkLiteral "8px";
         border-radius = mkLiteral "8px";
+        spacing = mkLiteral "10px";
       };
       "element selected" = {
-        background-color = mkLiteral bg-alt;
-        text-color = mkLiteral accent;
+        background-color = mkLiteral colors.surface0;
+        text-color = mkLiteral colors.accent;
+      };
+      "element-icon" = {
+        size = mkLiteral "24px";
+        background-color = mkLiteral "inherit";
       };
       "element-text" = {
         background-color = mkLiteral "inherit";

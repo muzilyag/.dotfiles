@@ -1,5 +1,5 @@
 {
-  description = "NixOS Config v0.1";
+  description = "NixOS Config v0.4";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -13,23 +13,34 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
+      username = "ilya";
+      colors = import ./modules/user/colors.nix;
       unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
-    in {
-      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+      mkHost = { hostName, isVM ? false }: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs unstable; };
+        specialArgs = { inherit inputs unstable username hostName isVM colors; };
         modules = [
-          ./hosts/vm/configuration.nix
+          ./modules/system/common.nix
+          ./hosts/${hostName}/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ilya = import ./modules/user/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs unstable username hostName isVM colors; };
+            home-manager.users.${username} = import ./modules/user/home.nix;
           }
         ];
+      };
+    in {
+      nixosConfigurations = {
+        vm = mkHost { hostName = "vm"; isVM = true; };
+        qemu = mkHost { hostName = "qemu"; isVM = true; };
+        vbox = mkHost { hostName = "vbox"; isVM = true; };
+        desktop = mkHost { hostName = "desktop"; isVM = false; };
+        laptop = mkHost { hostName = "laptop"; isVM = false; };
       };
     };
 }
